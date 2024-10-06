@@ -1,0 +1,98 @@
+.seat-container{
+    /* height: 350px;
+    width: 600px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    background-color: black; */
+    /* display: grid;
+    grid-template-columns: repeat(10, 3px);
+    gap: 8px;
+    justify-content: center;
+    height: 350px;
+    width: 600px;
+    border: solid black 1px;
+    padding: 20px; */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr)); /* Auto-adjust columns based on space */
+    gap: 8px;
+    justify-content: center;
+    width: 90%;  /* Use a percentage to allow flexibility in box size */
+    max-width: 700px; /* Set a maximum width to avoid overflow */
+    margin: 0 auto;
+    padding: 20px;
+    border: solid black 1px;
+    box-sizing: border-box; /* Ensures padding and borders don't overflow */
+}
+.center-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+       
+}
+.box-container{
+    /* height: auto;
+    width: 600px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: gray; */
+    height: auto;
+    width: 500px; /* Responsive width */
+    max-width: 700px; /* Max width for container */
+    margin: 10px;
+    border-radius: 10px;
+    background-color: gray;
+    padding: 20px;
+}
+
+.box-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .box-container input,
+  .box-container select {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+.box{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    background-color: #444;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  color: white;
+}
+
+
+.seat{
+    width: 30px;
+  height: 30px;
+  border: 2px solid lightgreen;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.seat:hover {
+    background-color: #d8f3dc; /* Light green on hover */
+  }
+  .selected {
+    background-color: green;
+    color: white;
+  }
+  
+  .booked {
+    background-color: lightgray;
+    cursor: not-allowed;
+  }  

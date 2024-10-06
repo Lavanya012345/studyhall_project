@@ -1,0 +1,110 @@
+/* 
+.dashboard-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    min-height: 100vh;       
+  }
+  
+  .dashboard-content {
+    width: 100%;
+    max-width: 1200px;  
+  }
+  
+  .filter-container {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .studyhall-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .box-container-id {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    width: 700px; 
+    cursor: pointer;
+    text-align: left;
+  }
+  
+   */
+
+
+
+
+
+
+
+
+
+   .dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4; /* Adds a light grey background */
+    overflow-y: auto;
+  }
+  
+  .dashboard-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+   
+  }
+  
+  .filter-container {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .studyhall-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+     /* Ensures even spacing around items */
+     max-height: calc(100vh - 200px); /* Adjust the max height based on other components */
+    
+  }
+  
+  .box-container-id {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    width: 470%; /* Adjust based on preference */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adds subtle shadow */
+    transition: transform 0.2s ease-in-out; /* Smooth transformation on hover */
+  }
+  
+  .box-container-id:hover {
+    transform: scale(1.05); /* Slightly enlarges the card on hover */
+  }
+  
+  h3 {
+    color: #007bff; /* Theme color for titles */
+  }
+  
+  .amenities {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+  }
+  
+  .amenity {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .amenity i {
+    margin-right: 5px; /* Space between icon and text */
+    color: #007bff; /* Theme color for icons */
+  }
+  
