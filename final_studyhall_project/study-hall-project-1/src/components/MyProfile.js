@@ -3,6 +3,7 @@ import axios from "axios";
 
 const MyProfile = () => {
   const [profileData, setProfileData] = useState({
+    id: "", // User ID to be sent along with the form data
     name: "",
     mobile: "",
     email: "",
@@ -46,6 +47,9 @@ const MyProfile = () => {
     <div>
       <h2>My Profile</h2>
       <form onSubmit={handleFormSubmit}>
+        {/* Hidden input for user ID */}
+        <input type="hidden" name="id" value={profileData.id} />
+
         <div>
           <label>Name:</label>
           <input

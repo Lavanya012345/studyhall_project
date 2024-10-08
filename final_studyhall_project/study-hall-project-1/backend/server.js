@@ -1293,27 +1293,26 @@ app.get('/payment-success', (req, res) => {
 
 
 
-app.get("/api/profile", (req, res) => {
-  const userId = req.user.id; // Assuming the user ID is available from authentication middleware
+app.get("/api/profile/:userId", (req, res) => {
+  const userId = req.params.userId; // Retrieve user ID from URL parameter
   pool.query("SELECT * FROM registerowner WHERE id = $1", [userId], (error, result) => {
     if (error) {
       return res.status(500).json({ error: "Failed to fetch user profile" });
     }
-    res.json(result.rows[0]);
+    res.json(result.rows[0]); // Return user data
   });
 });
 
 // Route to update profile data
 app.put("/api/profile", (req, res) => {
-  const userId = req.user.id; // Assuming you have authentication in place to get user ID
-  const { name, mobile, email } = req.body; // Other fields can be included here
-  
+  const { id, name, mobile, email } = req.body; // Get user data including ID from the form
+
   const query = `
     UPDATE registerowner 
     SET name = $1, mobile = $2, email = $3 
     WHERE id = $4
   `;
-  const values = [name, mobile, email, userId];
+  const values = [name, mobile, email, id];
 
   pool.query(query, values, (error, result) => {
     if (error) {
@@ -1322,7 +1321,6 @@ app.put("/api/profile", (req, res) => {
     res.json({ message: "Profile updated successfully" });
   });
 });
-
 
 
 const PORT = 5000;
