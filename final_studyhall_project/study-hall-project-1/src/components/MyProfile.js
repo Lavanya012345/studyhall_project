@@ -34,7 +34,7 @@ const MyProfile = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    axios.put("/api/profile", profileData) // This API will handle updating the profile
+    axios.put("http://localhost:5000/api/profile", profileData) // This API will handle updating the profile
       .then((response) => {
         setIsUpdated(true); // Show a message that the profile was updated
       })
