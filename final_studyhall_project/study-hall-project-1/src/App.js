@@ -9,7 +9,7 @@ import HistoryPage from './pages/HistoryPage';
 import Home from './components/home';
 import OwnerDashboard from './components/OwnerDashboard'
 import Analytics from './components/Analytics';
-import DataPage from './pages/DataPage';
+import MyProfile from './components/MyProfile';
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/admin-dashboard" element={<OwnerDashboard />} />
         <Route path="/analytics" element={<Analytics />} />
-        <Route path="/data" element={<DataPage />} />
+        <Route path="/profile" element={<MyProfile />} />
 
       </Routes>
     </Router>

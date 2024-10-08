@@ -127,7 +127,7 @@ const OwnerDashboard = () => {
   return (
   <div>
     <div class="sidebar">
-  <a href="/data"><i class="fa fa-fw fa-home"></i> My profile</a>
+  <a href="/profile"><i class="fa fa-fw fa-home"></i> My profile</a>
   <a href="/analytics"><i class="fa fa-fw fa-wrench"></i> Analyctis</a>
   <a href="#clients"><i class="fa fa-fw fa-user"></i> Help</a>
   <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>

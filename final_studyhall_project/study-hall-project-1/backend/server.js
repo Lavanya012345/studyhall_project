@@ -1293,27 +1293,36 @@ app.get('/payment-success', (req, res) => {
 
 
 
-app.get('/data/:owner_id', async (req, res) => {
-  const ownerId = req.params.owner_id;
-
-  try {
-      const result = await pool.query(
-          `SELECT study_hall_name, booked_seat_index, booking_start_date, booking_end_date, booking_amount, available_seats
-           FROM main_table
-           WHERE owner_id = $1`,
-          [ownerId]
-      );
-
-      if (result.rows.length === 0) {
-          return res.status(404).json({ message: "No bookings found for this owner." });
-      }
-
-      res.json(result.rows);
-  } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Error retrieving data" });
-  }
+app.get("/api/profile", (req, res) => {
+  const userId = req.user.id; // Assuming the user ID is available from authentication middleware
+  pool.query("SELECT * FROM registerowner WHERE id = $1", [userId], (error, result) => {
+    if (error) {
+      return res.status(500).json({ error: "Failed to fetch user profile" });
+    }
+    res.json(result.rows[0]);
+  });
 });
+
+// Route to update profile data
+app.put("/api/profile", (req, res) => {
+  const userId = req.user.id; // Assuming you have authentication in place to get user ID
+  const { name, mobile, email } = req.body; // Other fields can be included here
+  
+  const query = `
+    UPDATE registerowner 
+    SET name = $1, mobile = $2, email = $3 
+    WHERE id = $4
+  `;
+  const values = [name, mobile, email, userId];
+
+  pool.query(query, values, (error, result) => {
+    if (error) {
+      return res.status(500).json({ error: "Failed to update profile" });
+    }
+    res.json({ message: "Profile updated successfully" });
+  });
+});
+
 
 
 const PORT = 5000;
