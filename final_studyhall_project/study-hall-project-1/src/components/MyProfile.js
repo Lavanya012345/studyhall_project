@@ -13,7 +13,7 @@ const MyProfile = () => {
 
   // Fetch the user's current data on component load
   useEffect(() => {
-    axios.get("/api/profile") // Replace with the correct API endpoint to fetch profile data
+    axios.get("http://localhost:5000/api/profile") // Replace with the correct API endpoint to fetch profile data
       .then((response) => {
         setProfileData(response.data); // Assuming the API returns the user's current profile data
       })
