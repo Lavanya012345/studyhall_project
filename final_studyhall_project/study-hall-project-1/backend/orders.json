@@ -123,5 +123,12 @@
     "currency": "INR",
     "receipt": "receipt#1",
     "status": "created"
+  },
+  {
+    "order_id": "order_P6naQGBaqiNwKJ",
+    "amount": 100,
+    "currency": "INR",
+    "receipt": "receipt#1",
+    "status": "created"
   }
 ]

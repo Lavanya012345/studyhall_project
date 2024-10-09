@@ -735,7 +735,8 @@ app.use(express.static(path.join(__dirname)));
 
 app.use(cors({
   origin: 'http://localhost:3000', // or wherever your frontend is running
-  methods: ['GET', 'POST']
+  methods: ['GET', 'POST', 'PUT'],
+  allowedHeaders: ['Content-Type'],
 }));
 const pool = new Pool({
   user: 'postgres',
@@ -984,6 +985,8 @@ app.post('/api/bookSeats/:hallId', async (req, res) => {
   const { selectedSeats, bookingDetails } = req.body; // Seat indices and booking info
 
   try {
+
+    const result = await pool.query('SELECT * FROM seat_bookings WHERE hall_id = $1', [hallId]);
     for (const seatNumber of selectedSeats) {
       await pool.query(
         'INSERT INTO seat_bookings (hall_id, seat_index, user_email,startdate, enddate, amount) VALUES ($1, $2, $3, $4, $5, $6)',
@@ -1321,6 +1324,21 @@ app.put("/api/profile", (req, res) => {
     res.json({ message: "Profile updated successfully" });
   });
 });
+
+
+app.get('/api/bookings/:hallId', async (req, res) => {
+  const { hallId } = req.params;
+  try {
+    const result = await pool.query('SELECT * FROM seat_bookings WHERE hall_id = $1', [hallId]);
+    res.status(200).json(result.rows);
+  } catch (error) {
+    console.error('Database error:', error.message);
+    res.status(500).json({ error: 'Failed to fetch bookings' });
+  }
+});
+
+
+
 
 
 const PORT = 5000;

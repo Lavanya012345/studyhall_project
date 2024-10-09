@@ -46,8 +46,11 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f4f4f4; /* Adds a light grey background */
+    background-color: #f4f4f4; 
     overflow-y: auto;
+    /* background-image: url('C:\Users\lavan\OneDrive\Desktop\final_studyhall_project_Interface\final_studyhall_project\study-hall-project-1\university-of-chicago-study-hall-7w4o0au4ndxqsme8.jpg');
+    background-size: cover; */
+    width: 100vw;
   }
   
   .dashboard-content {
